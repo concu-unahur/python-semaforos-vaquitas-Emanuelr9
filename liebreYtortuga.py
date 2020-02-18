@@ -7,56 +7,55 @@ inicioPuente = 10
 largoPuente = 20
 
 sem=threading.Semaphore(1)
-semAvanzar=threading.Semaphore(1)
 
-
+semVaca=threading.Semaphore(5)
+semTortu=threading.Semaphore(1)
 
 
 class Vaca(threading.Thread):
   def __init__(self):
     super().__init__()
     self.posicion = 0
-    self.velocidad = 0.3
+    self.velocidad = 0.5
 
-  
+  semVaca.acquire()
   def avanzar(self):
      time.sleep(self.velocidad)
      self.posicion += 1
-       
+  semVaca.release()  
     
   def dibujar(self):
     print(' ' * self.posicion + "🐮")
 
+
+  
 class Liebre(threading.Thread):
   def __init__(self):
     super().__init__()
     self.posicion = 0
-    self.velocidad = 0.5
-
-    
+    self.velocidad = 0.100
+  
   def avanzar(self):
      time.sleep(self.velocidad)
-     self.posicion += 1
- 
+     self.posicion += 2
+     
   def dibujar(self):
     print(' ' * self.posicion + "=°0°=")
   
-
 class Tortuga(threading.Thread):
  def __init__(self):
     super().__init__()
     self.posicion = 0
     self.velocidad = 1
 
-    
+ 
  def avanzar(self):
      time.sleep(self.velocidad)
      self.posicion += 2
  
+
  def dibujar(self):
     print(' ' * self.posicion + "(°O°)")
- 
-  
 
  def run(self):
     
@@ -72,22 +71,29 @@ class Tortuga(threading.Thread):
 
    
 vacas = []
+
 for i in range(5):
   v = Vaca()
   vacas.append(v)
   v.start()
 
+
+
 liebres = []
 for i in range(2):
+
   l = Liebre()
   liebres.append(l)
   l.start()
- 
+
 tortugas = []
 for i in range(1):
   t = Tortuga()
   tortugas.append(t)
   t.start()
+
+
+  
 
 def cls():
   os.system('cls' if os.name=='nt' else 'clear')
