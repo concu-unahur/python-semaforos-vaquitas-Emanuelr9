@@ -21,7 +21,7 @@ class Vaca(threading.Thread):
     
 
   def dibujar(self):
-    print(' ' * self.posicion + "🐮")
+    print(' ' * self.posicion + "Vaca")
 
   def run(self):
     
@@ -42,6 +42,8 @@ for i in range(2):
 
 def cls():
   os.system('cls' if os.name=='nt' else 'clear')
+
+
 
 def dibujarPuente():
   print(' ' * inicioPuente + '=' * largoPuente)

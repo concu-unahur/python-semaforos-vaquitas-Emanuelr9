@@ -21,7 +21,7 @@ class Vaca(threading.Thread):
     
 
   def dibujar(self):
-    print(' ' * self.posicion + "🐮")
+    print(' ' * self.posicion + "Vaca")
 
   def run(self):
     
