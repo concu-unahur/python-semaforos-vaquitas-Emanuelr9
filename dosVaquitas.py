@@ -6,7 +6,7 @@ import threading
 inicioPuente = 10
 largoPuente = 20
 
-sem=threading.Semaphore(1)
+sem=threading.Semaphore(2)
 
 class Vaca(threading.Thread):
   def __init__(self):
@@ -44,8 +44,11 @@ def cls():
   os.system('cls' if os.name=='nt' else 'clear')
 
 
+
+
 def dibujarPuente():
   print(' ' * inicioPuente + '=' * largoPuente)
+
 
 
 while(True):
@@ -57,4 +60,3 @@ while(True):
     v.dibujar()
   dibujarPuente()
   time.sleep(0.2)
-

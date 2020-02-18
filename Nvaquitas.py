@@ -35,7 +35,7 @@ class Vaca(threading.Thread):
       self.avanzar()
 
 vacas = []
-for i in range(5):
+for i in range(10):
   v = Vaca()
   vacas.append(v)
   v.start()
@@ -57,4 +57,3 @@ while(True):
     v.dibujar()
   dibujarPuente()
   time.sleep(0.2)
-

@@ -57,4 +57,3 @@ while(True):
     v.dibujar()
   dibujarPuente()
   time.sleep(0.2)
-

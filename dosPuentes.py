@@ -35,7 +35,7 @@ class Vaca(threading.Thread):
       self.avanzar()
 
 vacas = []
-for i in range(5):
+for i in range(2):
   v = Vaca()
   vacas.append(v)
   v.start()
@@ -43,18 +43,35 @@ for i in range(5):
 def cls():
   os.system('cls' if os.name=='nt' else 'clear')
 
-
 def dibujarPuente():
   print(' ' * inicioPuente + '=' * largoPuente)
+
+def dibujarPuente2():
+  print(' ' * inicioPuente + '/' * largoPuente)
 
 
 while(True):
   cls()
-  print('Apreta Ctrl + C varias veces para salir...')
-  print()
+  print('Puente 1')
+  #print()
   dibujarPuente()
   for v in vacas:
     v.dibujar()
   dibujarPuente()
+  
+  print('Puente 2')
+  #print()
+  dibujarPuente2()
+  for v in vacas:
+    v.dibujar()
+  dibujarPuente2()
   time.sleep(0.2)
+  
+ 
+  
+
+
+
+
+
 
